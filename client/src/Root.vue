@@ -1,10 +1,8 @@
 <template>
   <div id="app">
-    <div class="container">
-       <navbar vshow="shouldShowNavigation"></navbar>
-       <alerts></alerts>
-      <router-view></router-view>
-    </div>
+    <navbar vshow="shouldShowNavigation"></navbar>
+    <alerts></alerts>
+    <router-view></router-view>
   </div>
 </template>
 

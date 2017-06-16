@@ -1,6 +1,6 @@
 <template>
   <div>
-      <div class="cover-container">
+      <div class="container">
         Vous êtes connecté
       </div>
   </div>

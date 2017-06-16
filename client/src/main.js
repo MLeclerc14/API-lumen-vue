@@ -3,6 +3,7 @@
 import { sync } from 'vuex-router-sync'
 import Vue from 'vue'
 import ElementUI from 'element-ui'
+import BootstrapVue from 'bootstrap-vue'
 import locale from 'element-ui/lib/locale/lang/fr'
 import Root from './Root'
 
@@ -31,6 +32,11 @@ import eventbus from './plugins/eventbus'
  * Element UI
  */
 Vue.use(ElementUI, { locale })
+
+/**
+ * Bootstrap Vue
+ */
+Vue.use(BootstrapVue)
 
 /**
  * Make $http avaible to all components
