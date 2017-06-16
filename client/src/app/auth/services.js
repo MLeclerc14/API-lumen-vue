@@ -21,8 +21,12 @@ http.post('/accessToken', { username, password, grant_type: 'password', client_i
 */
 .then(getData) // .then(response => getData(response))
 
+export const register = ({ username, password }) =>
+http.post('/users', { username, password })
+.then(getData)
+
 // get current user's data
-export const loadUserData = () => http.get('/me').then(getData)
+export const loadUserData = () => http.get('users/me').then(getData)
 
 // revoke current token
-export const revokeToken = () => http.post('/auth/token/revoke').then(getData)
+export const revokeToken = () => http.post('/auth/token').then(getData)

@@ -1,9 +1,5 @@
 <template>
     <div class="container">
-        <header class="page-header">
-            <h3>Starter kit</h3>
-            yo
-        </header>
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-3">

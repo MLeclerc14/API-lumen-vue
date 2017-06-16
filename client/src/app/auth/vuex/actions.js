@@ -14,8 +14,14 @@ export const attemptLogin = ({ dispatch }, payload) =>
       // return user // keep promise chain
     })
 
+export const register = ({ dispatch }, payload) => {
+  services.register(payload)
+  .then(({ test }) => {
+  })
+}
+
 export const logout = ({ dispatch }) => {
-  services.revokeToken()
+  // services.revokeToken()
   // call actions
   return Promise.all([
     dispatch('setToken', null),
@@ -31,7 +37,7 @@ export const setUser = ({ commit }, user) => {
 }
 
 export const setToken = ({ commit }, payload) => {
-  // prevent if payload is a object
+  // prevent if payload is an object
   const token = (isEmpty(payload)) ? null : payload.token || payload
 
   // Commit the mutations

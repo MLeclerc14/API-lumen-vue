@@ -30,4 +30,3 @@ $app->group(['middleware' => ['auth:api', 'throttle:60']], function () use ($app
     $app->put('users/{id}', 'UserController@update');
     $app->delete('users/{id}', 'UserController@destroy');
 });
-

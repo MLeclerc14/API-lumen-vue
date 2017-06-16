@@ -1,41 +1,76 @@
 <template>
-    <div>
-        <el-menu theme="dark" :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-          <el-menu-item index="1">Processing Center</el-menu-item>
-          <el-submenu index="2">
-            <template slot="title">Workspace</template>
-            <el-menu-item index="2-1">item one</el-menu-item>
-            <el-menu-item index="2-2">item two</el-menu-item>
-            <el-menu-item index="2-3">item three</el-menu-item>
-          </el-submenu>
-          <el-menu-item index="3"><a href="https://www.ele.me" target="_blank">Orders</a></el-menu-item>
-        </el-menu>
-        <div class="line"></div>
-        <el-menu :default-active="activeIndex2" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-          <el-menu-item index="1">Processing Center</el-menu-item>
-          <el-submenu index="2">
-            <template slot="title">Workspace</template>
-            <el-menu-item index="2-1">item one</el-menu-item>
-            <el-menu-item index="2-2">item two</el-menu-item>
-            <el-menu-item index="2-3">item three</el-menu-item>
-          </el-submenu>
-          <el-menu-item index="3"><a href="https://www.ele.me" target="_blank">Orders</a></el-menu-item>
-        </el-menu>
-    </div>
+  <div>
+    <spinner></spinner>
+    <!-- el-menu and its children comes from Element UI -->
+    <!-- http://element.eleme.io/#/en-US/component/menu -->
+    <el-menu theme="dark" default-active="1" class="cc-navigation"
+      mode="horizontal" @select="navigate">
+      <el-menu-item index="dashboard.index">Dashboard</el-menu-item>
+      <el-submenu index="menu-user" class="logout-button">
+        <template slot="title">{{ currentUser.firstName }}</template>
+        <el-menu-item index="logout">Se déconnecter</el-menu-item>
+      </el-submenu>
+    </el-menu>
+  </div>
 </template>
 
 <script>
+  import { mapActions, mapGetters } from 'vuex'
+  import Spinner from '../general/spinner'
+
   export default {
-    data () {
-      return {
-        activeIndex: '1',
-        activeIndex2: '1'
+    components: {
+      Spinner
+    },
+    computed: {
+     /**
+      * See src/app/auth/vuex/getters.js
+      */
+      ...mapGetters(['currentUser', 'isLogged'])
+    },
+    watch: {
+      isLogged (value) {
+        if (value === false) {
+          this.$router.push({ name: 'auth.login' })
+        }
       }
     },
     methods: {
-      handleSelect (key, keyPath) {
-        console.log(key, keyPath)
+     /**
+      * Makes logout() action available withint this component
+      * See /src/app/auth/vuex/actions.js
+      */
+      ...mapActions(['logout']),
+      /* eslint-disable no-undef */
+      navigate (name) {
+        switch (name) {
+          case 'logout':
+            this.logout()
+            break
+          default:
+            this.$router.push({ name })
+            break
+        }
       }
     }
   }
 </script>
+
+
+<style scoped>
+  .cc-navigation {
+    padding-left: 115px;
+    padding-right: 30px;
+  }
+  .brand {
+    font-size: 1.2em;
+  }
+  .logout-button {
+    float: right;
+  }
+  .version {
+    position: absolute;
+    right: 15px;
+    top: 65px;
+  }
+</style>

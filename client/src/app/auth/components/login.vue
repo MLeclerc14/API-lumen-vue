@@ -26,16 +26,17 @@ export default {
    /**
     * Map the actions from Vuex to this component.
     */
-    ...mapActions(['attemptLogin', 'setMessage']),
+    ...mapActions(['attemptLogin', 'loadUser', 'setMessage']),
    /**
     * Handle form's submit event
     */
     submit () {
-      const { username, password } = this // http://wesbos.com/destructuring-objects/
-      this.attemptLogin({ username, password }) // this is a Vuex action
+      const { username, password } = this
+      this.attemptLogin({ username, password })
       .then(() => {
-        this.setMessage({ type: 'error', message: [] }) // this is a Vuex action
-        // this.$router.push({ name: 'dashboard.index' })
+        this.setMessage({ type: 'error', message: [] })
+        this.loadUser()
+        this.$router.push({ name: 'dashboard.index' })
       })
     },
     /**
