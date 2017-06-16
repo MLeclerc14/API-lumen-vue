@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <navbar vshow="shouldShowNavigation"></navbar>
-    <alerts></alerts>
     <router-view></router-view>
   </div>
 </template>
