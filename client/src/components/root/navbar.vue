@@ -4,7 +4,7 @@
     <div id="app">
     <b-navbar toggleable class="container">
         <b-nav-toggle target="nav_collapse"></b-nav-toggle>
-        <b-link class="navbar-brand" to="#">
+        <b-link class="navbar-brand" :to="{ name: 'home' }">
             <span>SPA Starter</span>
         </b-link>
         <b-collapse is-nav id="nav_collapse">
