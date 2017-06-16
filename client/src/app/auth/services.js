@@ -2,10 +2,11 @@
 // import http client
 import { http } from '../../plugins/http'
 import { getData } from '../../utils/get'
+import { clientSecret, clientId } from '../../config'
 
 // send login data and retrive a new token
 export const postLogin = ({ username, password }) =>
-http.post('/accessToken', { username, password })
+http.post('/accessToken', { username, password, grant_type: 'password', client_id: clientId, client_secret: clientSecret })
 /**
 * functional approach, more readable and generate minus code
 * examples:

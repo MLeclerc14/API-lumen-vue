@@ -12,7 +12,8 @@
         "league/fractal": "^0.15.0",
         "dusterio/lumen-passport": "^0.1.9",
         "barryvdh/laravel-cors": "^0.8.6",
-        "illuminate/mail": "^5.4"
+        "illuminate/mail": "^5.4",
+        "nordsoftware/lumen-cors": "^2.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

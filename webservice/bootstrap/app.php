@@ -48,9 +48,6 @@ $app->singleton(
     App\Console\Kernel::class
 );
 
-// load cors configurations
-$app->configure('cors');
-
 // load mail configurations
 $app->configure('mail');
 
@@ -69,7 +66,7 @@ $app->configure('database');
 */
 
  $app->middleware([
-     \Barryvdh\Cors\HandleCors::class,
+     Nord\Lumen\Cors\CorsMiddleware::class,
  ]);
 
  $app->routeMiddleware([
@@ -94,7 +91,7 @@ $app->register(App\Providers\EventServiceProvider::class);
 $app->register(App\Providers\RepositoriesServiceProvider::class);
 $app->register(Laravel\Passport\PassportServiceProvider::class);
 $app->register(Dusterio\LumenPassport\PassportServiceProvider::class);
-$app->register(Barryvdh\Cors\LumenServiceProvider::class);
+$app->register(Nord\Lumen\Cors\CorsServiceProvider::class);
 $app->register(\Illuminate\Mail\MailServiceProvider::class);
 
 /*

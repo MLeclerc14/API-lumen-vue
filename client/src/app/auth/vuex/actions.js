@@ -6,11 +6,12 @@ import * as services from '../services'
 
 export const attemptLogin = ({ dispatch }, payload) =>
     services.postLogin(payload)
-    .then(({ token, user }) => {
-      dispatch('setUser', user.data)
-      dispatch('setToken', token)
+    .then(({ access_token, refresh_token }) => {
+      console.log(access_token)
+      // dispatch('setUser', user.data)
+      dispatch('setToken', access_token)
 
-      return user // keep promise chain
+      // return user // keep promise chain
     })
 
 export const logout = ({ dispatch }) => {

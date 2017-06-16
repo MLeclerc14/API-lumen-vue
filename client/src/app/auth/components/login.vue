@@ -2,7 +2,7 @@
     <div class="well">
         <el-form ref="form">
             <el-form-item label="Email">
-                <el-input v-model="email"></el-input>
+                <el-input v-model="username"></el-input>
             </el-form-item>
             <el-form-item label="Mot de passe">
                 <el-input v-model="password" type="password"></el-input>
@@ -18,7 +18,7 @@ import { mapActions } from 'vuex'
 export default {
   data () {
     return {
-      email: '',
+      username: '',
       password: ''
     }
   },
@@ -31,18 +31,18 @@ export default {
     * Handle form's submit event
     */
     submit () {
-      const { email, password } = this // http://wesbos.com/destructuring-objects/
-      this.attemptLogin({ email, password }) // this is a Vuex action
+      const { username, password } = this // http://wesbos.com/destructuring-objects/
+      this.attemptLogin({ username, password }) // this is a Vuex action
       .then(() => {
         this.setMessage({ type: 'error', message: [] }) // this is a Vuex action
-        this.$router.push({ name: 'dashboard.index' })
+        // this.$router.push({ name: 'dashboard.index' })
       })
     },
     /**
      * Reset component's local state
      */
     reset () {
-      this.email = ''
+      this.username = ''
       this.password = ''
     }
   }
