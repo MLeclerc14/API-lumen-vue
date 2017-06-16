@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="container">
-      <navbar vshow="shouldShowNavigation"></navbar>
+       <navbar vshow="shouldShowNavigation"></navbar>
        <alerts></alerts>
       <router-view></router-view>
     </div>
@@ -24,3 +24,5 @@ export default {
   }
 }
 </script>
+
+<style lang="sass" src="assets/sass/app.scss"></style>

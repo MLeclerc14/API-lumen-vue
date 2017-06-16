@@ -7,7 +7,7 @@
       mode="horizontal" @select="navigate">
       <el-menu-item index="dashboard.index">Dashboard</el-menu-item>
       <el-submenu index="menu-user" class="logout-button">
-        <template slot="title">{{ currentUser.firstName }}</template>
+        <template slot="title">{{ currentUser.firstName }} {{ currentUser.lastName }}</template>
         <el-menu-item index="logout">Se déconnecter</el-menu-item>
       </el-submenu>
     </el-menu>
@@ -55,22 +55,3 @@
     }
   }
 </script>
-
-
-<style scoped>
-  .cc-navigation {
-    padding-left: 115px;
-    padding-right: 30px;
-  }
-  .brand {
-    font-size: 1.2em;
-  }
-  .logout-button {
-    float: right;
-  }
-  .version {
-    position: absolute;
-    right: 15px;
-    top: 65px;
-  }
-</style>
