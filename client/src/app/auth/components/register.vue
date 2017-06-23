@@ -1,23 +1,24 @@
 <template>
     <div>
-        <el-form ref="form">
-            <el-form-item label="Prénom">
-                <el-input v-model="firstName"></el-input>
-            </el-form-item>
-            <el-form-item label="Nom">
-                <el-input v-model="lastName"></el-input>
-            </el-form-item>
-            <el-form-item label="Email">
-                <el-input v-model="email"></el-input>
-            </el-form-item>
-            <el-form-item label="Pseudo">
-                <el-input v-model="username"></el-input>
-            </el-form-item>
-            <el-form-item label="Mot de passe">
-                <el-input v-model="password" type="password"></el-input>
-            </el-form-item>
-            <el-button @click="submit">S'inscrire</el-button>
-        </el-form>
+        <form novalidate @submit.stop.prevent="submit">
+            <md-input-container>
+              <label>Prénom</label>
+              <md-input v-model="firstName"></md-input>
+            </md-input-container>
+            <md-input-container>
+              <label>Nom</label>
+              <md-input v-model="lastName"></md-input>
+            </md-input-container>
+             <md-input-container>
+                <label>Email</label>
+                <md-input v-model="username"></md-input>
+              </md-input-container>
+            <md-input-container  md-has-password>
+            <label>Mot de passe</label>
+            <md-input type="password" v-model="password"></md-input>
+          </md-input-container>
+          <md-button type="submit" class="md-raised md-primary">S'inscrire</md-button>
+        </form>
     </div>
 </template>
 

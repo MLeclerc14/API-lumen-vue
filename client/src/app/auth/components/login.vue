@@ -1,15 +1,18 @@
 <template>
-    <div class="well">
-        <el-form ref="form">
-            <el-form-item label="Email">
-                <el-input v-model="username"></el-input>
-            </el-form-item>
-            <el-form-item label="Mot de passe">
-                <el-input v-model="password" type="password"></el-input>
-            </el-form-item>
-            <el-button @click="submit">Se connecter</el-button>
-        </el-form>
+    <div>
+    <form novalidate @submit.stop.prevent="submit">
+      <md-input-container>
+        <label>Email</label>
+        <md-input v-model="username"></md-input>
+      </md-input-container>
+      <md-input-container  md-has-password>
+        <label>Mot de passe</label>
+        <md-input type="password" v-model="password"></md-input>
+      </md-input-container>
+      <md-button type="submit" class="md-raised md-primary">Se connecter</md-button>
+    </form>
     </div>
+
 </template>
 
 <script>

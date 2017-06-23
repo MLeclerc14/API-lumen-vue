@@ -1,10 +1,8 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import { sync } from 'vuex-router-sync'
+import VueMaterial from 'vue-material'
 import Vue from 'vue'
-import ElementUI from 'element-ui'
-import BootstrapVue from 'bootstrap-vue'
-import locale from 'element-ui/lib/locale/lang/fr'
 import Root from './Root'
 
 /**
@@ -29,14 +27,9 @@ import httpPlugin from './plugins/http'
 import eventbus from './plugins/eventbus'
 
 /**
- * Element UI
+ * Vue Material
  */
-Vue.use(ElementUI, { locale })
-
-/**
- * Bootstrap Vue
- */
-Vue.use(BootstrapVue)
+Vue.use(VueMaterial)
 
 /**
  * Make $http avaible to all components

@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <navbar vshow="shouldShowNavigation"></navbar>
-    <router-view></router-view>
+    <main class="main-content">
+        <router-view></router-view>
+    </main>
   </div>
 </template>
 
